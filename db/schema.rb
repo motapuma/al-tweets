@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150501175512) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "faved_favers", force: true do |t|
     t.integer  "tweet_id"
     t.integer  "user_id"
@@ -33,7 +36,7 @@ ActiveRecord::Schema.define(version: 20150501175512) do
   end
 
   create_table "tweets", force: true do |t|
-    t.text     "tweet_text",     limit: 314
+    t.text     "tweet_text"
     t.integer  "user_id"
     t.integer  "replying_tweet"
     t.integer  "quote_tweet"
@@ -64,7 +67,7 @@ ActiveRecord::Schema.define(version: 20150501175512) do
     t.string   "last_sign_in_ip"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
