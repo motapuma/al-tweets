@@ -1,0 +1,7 @@
+<%
+	text, but_class,faved = correct_txt_and_class_fav(current_user,tweet)
+%>
+
+<%= hidden_field_tag :to_unfav, faved%>
+
+<%= button_tag text, class: but_class %>

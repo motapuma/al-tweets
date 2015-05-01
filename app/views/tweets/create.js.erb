@@ -1,0 +1,3 @@
+$("#new_tweet_modal").modal("hide");
+
+$("#timeline_user_div").html("<%= escape_javascript(render 'tweets_table', user_tweets: current_user.tweets) %>"); 

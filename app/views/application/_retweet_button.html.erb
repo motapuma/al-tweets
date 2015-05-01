@@ -1,0 +1,7 @@
+<%
+	text, but_class,retweeted = correct_txt_and_class_retweet(current_user,tweet)
+%>
+
+<%= hidden_field_tag :to_unretweet, retweeted%>
+
+<%= button_tag text, class: but_class %>

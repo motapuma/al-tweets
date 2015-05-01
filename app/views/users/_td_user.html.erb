@@ -1,0 +1,16 @@
+<td>
+	<%=user.email%>
+</td>
+
+<td>
+	
+	<%= form_tag follow_path do %>
+
+		<%= hidden_field_tag :follower_id, current_user.id%>
+		<%= hidden_field_tag :following_id, user.id%>
+
+		<% txt,class_name = correct_txt_and_class_follow(current_user,user)%>
+		<%= render "follow_button", user:user  %>
+	<%end%>
+
+</td>

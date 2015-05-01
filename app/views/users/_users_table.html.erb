@@ -1,0 +1,12 @@
+<div class="row" >
+	 <div class="col-md-8 col-md-offset-2">
+		<table class="table table-striped">
+			<%users.each do |user|%>
+				<tr>
+					
+					<%=render "td_user", user:user%>
+				</tr>
+			<%end%>
+		</table>
+	</div>
+</div>

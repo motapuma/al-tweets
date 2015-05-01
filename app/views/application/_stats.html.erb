@@ -1,0 +1,17 @@
+<div class="row">
+	
+	 <div class="col-md-3" align="center">
+	 	<b>Followers:</b><br/> <%=current_user.followers.count%><br/>
+	 </div>
+	 <div class="col-md-3" align="center">
+	 	<b>Following:</b><br/> <%=current_user.followings.count%><br/>
+	 </div>
+
+	 <div class="col-md-3" align="center">
+	 	<b>Tweets:</b><br/> <%=current_user.tweets_with_retweets.count%><br/>
+	 </div>
+	 <div class="col-md-3" align="center">
+	 	<b>Favs:</b><br/> <%=current_user.faveds.count%><br/>
+	 </div>
+
+</div>

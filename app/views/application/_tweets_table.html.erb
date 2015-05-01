@@ -1,0 +1,15 @@
+<div class="row" >
+	 <div class="col-md-8 col-md-offset-2">
+		<table class="table table-striped">
+			<%user_tweets.each do |tweet|%>
+				<tr>
+					<td>
+						<%=render "td_tweet", tweet:tweet%>
+					</td>	
+				</tr>
+			<%end%>
+		</table>
+	</div>
+</div>
+
+

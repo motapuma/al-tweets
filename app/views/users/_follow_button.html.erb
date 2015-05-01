@@ -1,0 +1,8 @@
+<%
+	# recivo current_user y 
+	text, but_class,following = correct_txt_and_class_follow(current_user,user)
+%>
+
+<%= hidden_field_tag :to_unfollow, following%>
+
+<%= button_tag text, class: but_class %>

@@ -1,0 +1,60 @@
+<div class="row">
+	<div align="left">
+		<%= tweet.user.email %> tuiteo :
+	</div>
+</div>
+
+<div class="row">
+	<div align="center">
+		<%= tweet.tweet_text %>
+	</div>
+</div>
+
+<%if !tweet.quoting_tweet.nil?%>
+	<div class="row">
+		<div align="center" class="bordered">
+			<b>Quaoting</b> <%= tweet.quoting_tweet.tweet_text  %>
+		</div>
+	</div>
+<%end%>
+
+<div class="row">
+
+	<div class="col-md-4 " align="center">
+		
+
+		<%= form_tag retweet_path do %>
+
+			<%= hidden_field_tag :user_id, current_user.id%>
+			<%= hidden_field_tag :tweet_id, tweet.id%>
+
+			
+			<%= render "retweet_button", tweet:tweet  %>
+		<%end%>
+		
+		<i>Retweets: </i><b> <%= tweet.retweeters.count %></b>
+
+
+	</div>
+	<div class="col-md-4 " align="center">
+
+		<%= button_tag "Quote", onclick: "quote_new_tweet('#{tweet.id}');", :class => "btn btn-success btn-lg" %>
+	</div>
+	<div class="col-md-4 " align="center">
+		
+
+		<%= form_tag fav_path do %>
+
+			<%= hidden_field_tag :user_id, current_user.id%>
+			<%= hidden_field_tag :tweet_id, tweet.id%>
+
+			
+			<%= render "fav_button", tweet:tweet  %>
+		<%end%>
+		<i>Favs: </i><b> <%= tweet.favers.count %></b>
+
+	</div>
+	
+</div>
+	
+	

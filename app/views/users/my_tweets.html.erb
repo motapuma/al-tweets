@@ -1,0 +1,9 @@
+<div align="center">
+	<h1>My Tweets</h1>
+</div>
+
+<%=render "stats"%>
+
+<div id="timeline_user_div">
+	<%= render "tweets_table" ,user_tweets:@user_tweets %>
+</div>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ItexicoNews</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<div id="header-wrapper">
+
+		<div id="header" class="container">
+			<div id="logo">
+	        	<span class="icon icon-cog"></span>
+				<h1><a href="#"> Al-Tweets</a></h1>
+			</div>
+			<div id="menu">
+				<ul>
+					<li><%=link_to "My tweets",my_tweets_path %></li>
+					<li><%=link_to "Met people",met_people_path %></li>
+					<li><%=link_to "Timeline",timeline_path %></li>
+					<li><%=link_to "Favs",faveds_path %></li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+
+			<div class="col-md-2 col-md-offset-5">
+				<%= render "tweet_button" %>
+			</div>
+			<div class="col-md-1 col-md-offset-3" 	>
+				<%= link_to "Sign out", destroy_user_session_path, :method => :delete,class: "btn btn-danger btn-lg" %>
+			</div>
+		</div>
+	</div>
+
+	<div class="wrapper">
+		<%= yield %>
+	</div>
+
+	<div id="footer">
+	</div>
+	<div id="copyright">
+	</div>
+
+	<%=render "modal" if !current_user.nil?%>
+
+
+</body>
+</html>
