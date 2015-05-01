@@ -97,7 +97,7 @@ class TweetsController < ApplicationController
   # POST /tweets.json
   def create
     @tweet = Tweet.new(tweet_params)
-    binding.pry
+    
     respond_to do |format|
       if @tweet.save
         format.html { redirect_to edit_tweet_path(@tweet), notice: 'Tweet creado' }
